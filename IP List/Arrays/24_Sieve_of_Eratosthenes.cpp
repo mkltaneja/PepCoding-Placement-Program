@@ -1,7 +1,7 @@
 
 vector<int> sieveOfEratosthenes(int n)
 {
-    vector<int> vis(n + 1, false);
+    vector<bool> vis(n + 1, false);
     for (int i = 2; i * i <= n; i++)
     {
         if (vis[i])

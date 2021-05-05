@@ -9,28 +9,47 @@ int main()
 	{
 		int m, n;
 		cin>>m>>n;
-		vector<bool> arr(n-m+1, false);
-		vector<bool> prev(m, false);
-		
-		for(int i = 2; i*i <= n; i++)
+		vector<bool> vis(sqrt(n)+1);
+		int rn = vis.size();
+
+		for(int i = 2; i*i <= rn; i++)
 		{
-			if(i < m && prev[i]) continue;
-			else if(i >= m && arr[i%m]) continue;
-			for(int j = i*i; j <= n; j++)
-			{
-				if(j < m) prev[j] = true;
-				else arr[j%m] = true;
-			}
+			if(vis[i]) continue;
+			for(int j = i*i; j <= rn; j+=i)
+				vis[j] = true;
+			// cout<<endl;
 		}
+		vector<int> primes;
+		for(int i = 2; i <= rn; i++)
+		{
+			// cout<<i<<" ";
+			if(!vis[i]) 
+				primes.push_back(i);
+		}
+		// cout<<endl;
 		
-		vector<int> ans;
-		for(int i = 0; i < n-m+1; i++) 
-			if(!arr[i]) 
-				ans.push_back(i+m);
-		cout<<ans.size()<<endl;
-		for(int i = 0; i < ans.size(); i++) 
-            cout<<ans[i]<<" ";
-		cout<<endl;
+		vector<bool> ans(n-m+1);
+		for(int x : primes)
+		{
+			// cout<<x<<":  ";
+			int i = (ceil(1.0*(m+1)/x)*x);
+			// int i = (m%x == 0)? m/x : m/x+1;
+			if(i < x) i = x;
+			for(; i <= n; i+=x)
+				if(i != x)
+					ans[i-m] = true;
+					// cout<<i<<", ";
+			// cout<<endl;
+		}
+		// cout<<endl;
+		
+		for(int i = 0; i < n-m+1; i++)
+		{
+			// cout<<i+m<<" -> "<<ans[i]<<",  ";
+			if(!ans[i] && i+m != 1)
+				cout<<i+m<<"\n";
+		}
+		// cout<<endl;
 	}	
 	return 0;
 }
