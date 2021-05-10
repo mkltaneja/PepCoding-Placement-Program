@@ -56,6 +56,11 @@ function getTopLeftBottomRightCell(rowId,colId) {
     let bottomCell = $(`#row-${rowId + 1}-col-${colId}`);
     let leftCell = $(`#row-${rowId}-col-${colId - 1}`);
     let rightCell = $(`#row-${rowId}-col-${colId + 1}`);
+    console.log(topCell);
+    console.log(bottomCell);
+    console.log(leftCell);
+    console.log(rightCell);
+
     return [topCell,bottomCell,leftCell,rightCell];
 }
 $(".input-cell").click(function(e) {
