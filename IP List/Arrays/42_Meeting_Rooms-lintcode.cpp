@@ -8,4 +8,4 @@ bool canAttendMeetings(vector<Interval> &intervals)
         if (intervals[i + 1].start < intervals[i].end)
             return false;
     return true;
-}`
+}
