@@ -31,3 +31,40 @@ vector<int> smallestRange(vector<vector<int>> &nums)
     }
     return ans;
 }
+
+// APPROACH 2 (Adding single element from every k list in the min priority_queue then comparing "max - min" every time) --> O(n*m*log(k))
+
+#define f first
+#define s second
+vector<int> smallestRange(vector<vector<int>> &nums)
+{
+    int k = nums.size();
+    priority_queue<pair<int, pair<int, int>>,
+                   vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>>
+        pq;
+    int mx = INT_MIN;
+    for (int i = 0; i < k; i++)
+    {
+        pq.push({nums[i][0], {i, 0}});
+        mx = max(mx, nums[i][0]);
+    }
+
+    vector<int> ans = {-1, INT_MAX - 1};
+    while (!pq.empty())
+    {
+        auto top = pq.top();
+        pq.pop();
+
+        if ((mx - top.f) < (ans[1] - ans[0]))
+            ans[0] = top.f, ans[1] = mx;
+
+        if (top.s.s + 1 < nums[top.s.f].size())
+        {
+            pq.push({nums[top.s.f][top.s.s + 1], {top.s.f, top.s.s + 1}});
+            mx = max(mx, nums[top.s.f][top.s.s + 1]);
+        }
+        else
+            break;
+    }
+    return ans;
+}
