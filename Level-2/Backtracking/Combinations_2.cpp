@@ -2,27 +2,21 @@
 #include <vector>
 using namespace std;
 
-void permutation(int idx, int n, int k, vector<char> items)
+void combination(int idx, int placed, int n, int k, string ans)
 {
-    if (k == 0)
+    if (idx == n)
     {
-        for (char x : items)
-            cout << x;
-        cout << endl;
+        if (placed == k)
+            cout << ans << endl;
         return;
     }
-    for (int i = idx; i < n; i++)
-    {
-        items[i] = 'i';
-        permutation(i + 1, n, k - 1, items);
-        items[i] = '-';
-    }
+    combination(idx + 1, placed + 1, n, k, ans + "i");
+    combination(idx + 1, placed, n, k, ans + "-");
 }
 
 int main()
 {
     int n, k;
     cin >> n >> k;
-    vector<char> items(n, '-');
-    permutation(0, n, k, items);
+    combination(0, 0, n, k, "");
 }
