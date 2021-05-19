@@ -11,12 +11,10 @@ void nQueen(int placed, int n, vector<vector<int>> &box, int row, int col, int l
             for (int j = 0; j < n; j++)
             {
                 if (!box[i][j])
-                    cout << "-	";
+                    cout << "-\t";
                 else
-                    cout << "q" << box[i][j] << "	";
+                    cout << "q" << box[i][j] << "\t";
             }
-            cout << "
-                    ";
         }
         cout << endl;
         return;
