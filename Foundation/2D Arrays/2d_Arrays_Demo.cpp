@@ -14,13 +14,18 @@ void display(int n, int m, vector<vector<int>> &arr)
 
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    vector<vector<int>> arr(n, vector<int>(m));
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            cin >> arr[i][j];
-    display(n, m, arr);
+    // cout<<(2)%(-5);
+    int a = 65;
+    char b = 'A';
+    if(a == b) cout<<"equal\n";
+    else cout<<"not\n";
+    // int n, m;
+    // cin >> n >> m;
+    // vector<vector<int>> arr(n, vector<int>(m));
+    // for (int i = 0; i < n; i++)
+    //     for (int j = 0; j < m; j++)
+    //         cin >> arr[i][j];
+    // display(n, m, arr);
 }
 
 // SEGMENT TREE QUESTION=============================================================================================

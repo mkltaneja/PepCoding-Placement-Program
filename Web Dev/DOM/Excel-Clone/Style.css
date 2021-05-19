@@ -83,6 +83,11 @@ body
     cursor: pointer;
 }
 
+.menu-icon.selected 
+{
+    background-color: lightgray;
+}
+
 .menu-selector
 {
     height: 5vh;
@@ -255,6 +260,11 @@ body
     outline-color: #227447;
 }
 
+.input-cell:hover
+{
+    cursor: cell;
+}
+
 .input-cell.selected
 {
     border: 2px solid #227447;
@@ -279,3 +289,140 @@ body
 {
     border-right: 1px solid lightgray;
 }
+
+.alignment.selected
+{
+    background-color: lightgray;
+}
+
+.sheet-bar
+{
+    display: flex;
+    height: 4vh;
+    width: 100vw;
+    align-items: center;
+}
+
+.sheet-scroller
+{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sheet-tab-container
+{
+    display: flex;
+    border-left: 0.5px solid lightgrey;
+    overflow: scroll;
+}
+
+.sheet-tab-container::-webkit-scrollbar 
+{
+    display: none;
+}
+
+.sheet-tab-container
+{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sheet-tab
+{
+    display: flex;
+    justify-content: center;
+    height: 4vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    font-weight: 600;
+    border-right: 1px solid lightgrey;
+    font-size: 15px;
+}
+
+.sheet-tab.selected 
+{
+    background-color: #fff;
+    border-bottom: 5px solid #05550f;
+    color: #05550f;
+    font-size: smaller;
+}
+
+.sheet-tab:hover 
+{
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.sheet-tab.selected:hover 
+{
+    cursor: default;
+    background-color: #fff;
+}
+
+.add-sheet
+{
+    color: #05550f;
+    margin-right: 10px;
+}
+
+.add-sheet:hover 
+{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.scroller:hover 
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: lightgrey;
+}
+
+.sheet-options-modal
+{
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 lightgrey;
+    bottom: 4vh;
+}
+
+.option 
+{
+    padding: 7px 15px 7px 15px;
+}
+
+.option:hover 
+{
+    background-color: lightgrey;
+    cursor: default;
+}
+
+.sheet-modal-parent
+{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    background-color: rgba(68, 68, 68, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sheet-rename-modal
+{
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.336);
+    padding: 15px;
+    min-width: 400px;
+    width: 30vw;
+}
+
+.sheet-modal-title
+{
+    text-align: center;
+    font-size: 26px;
+}
+
