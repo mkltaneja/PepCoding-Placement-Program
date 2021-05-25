@@ -1,3 +1,9 @@
+
+// NOTE 1:- This Question is Permutation of string.
+
+// This Question is opposite of permutation 2, where box was choosing the numbers or not; 
+// but here every character of distinct character string is choosing the boxes or not
+
 #include <iostream>
 #include <vector>
 using namespace std;

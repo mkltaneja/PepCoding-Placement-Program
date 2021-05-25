@@ -1,20 +1,23 @@
-
-// NOTE 1:- This Question is Combination of string.
-
 #include <iostream>
 #include <vector>
 using namespace std;
 
-void word_selection(int idx, int k, string &s, string ans)
+void word_selection(int selected, int k, string &s, vector<bool> &vis, string ans)
 {
-    if (ans.size() == k)
+    if (selected == k)
     {
         cout << ans << endl;
         return;
     }
-
-    for (int i = idx; i < s.size(); i++)
-        word_selection(i + 1, k, s, ans + s[i]);
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (!vis[i])
+        {
+            vis[i] = true;
+            word_selection(selected + 1, k, s, vis, ans + s[i]);
+            vis[i] = false;
+        }
+    }
 }
 
 int main()
@@ -25,6 +28,7 @@ int main()
     cin >> k;
 
     vector<bool> vis(26, false);
+
     string ss = "";
     for (int i = 0; i < s.size(); i++)
     {
@@ -34,5 +38,6 @@ int main()
             ss += s[i];
         }
     }
-    word_selection(0, k, ss, "");
+    vector<bool> vis2(s.size(), false);
+    word_selection(0, k, ss, vis2, "");
 }

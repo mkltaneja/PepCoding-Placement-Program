@@ -1,3 +1,6 @@
+
+// NOTE 1:- This Question is Combination of string.
+
 #include <iostream>
 #include <vector>
 using namespace std;
