@@ -14,6 +14,7 @@ body
     color: #444;
     height: 100vh;
     font-family: sans-serif;
+    position: relative;
 }
 
 .title
@@ -165,7 +166,7 @@ body
 .data-container
 {
     width: 100vw;
-    height: 76vh;
+    height: 79vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -338,7 +339,7 @@ body
     padding-top: 4px;
     font-weight: 600;
     border-right: 1px solid lightgrey;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .sheet-tab.selected 
@@ -346,7 +347,7 @@ body
     background-color: #fff;
     border-bottom: 5px solid #05550f;
     color: #05550f;
-    font-size: smaller;
+    font-size: 15.2px;
 }
 
 .sheet-tab:hover 
@@ -382,6 +383,11 @@ body
 
 .sheet-options-modal
 {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
     position: absolute;
     background-color: #fff;
     box-shadow: 0 8px 16px 0 lightgrey;
@@ -393,10 +399,15 @@ body
     padding: 7px 15px 7px 15px;
 }
 
+.sheet-rename
+{
+    border-bottom: 0.5px solid lightgray;
+}
+
 .option:hover 
 {
     background-color: lightgrey;
-    cursor: default;
+    cursor: pointer;
 }
 
 .sheet-modal-parent
@@ -411,7 +422,7 @@ body
     align-items: center;
 }
 
-.sheet-rename-modal
+.sheet-rename-modal, .sheet-delete-modal
 {
     background-color: #fff;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.336);
@@ -424,5 +435,151 @@ body
 {
     text-align: center;
     font-size: 26px;
+    color: #05550f;
+    font-weight: bold;
 }
 
+.sheet-modal-input-container, .sheet-modal-detail-container
+{
+    padding: 10px;
+}
+
+.sheet-modal-detail-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.sheet-modal-input-title
+{
+    font-weight: bold;
+    margin-top: 40px;
+    display: block;
+}
+
+.sheet-modal-input 
+{
+    width: 100%;
+    height: 2rem;
+    font-size: 1.2rem;
+    outline-color: #05550f;
+    margin-top: 10px;
+}
+
+.sheet-modal-confirmation
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.button
+{
+    border: 1px solid;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.button:hover 
+{
+    cursor: pointer;
+}
+
+.yes-button
+{
+    color: #fff;
+    background-color: #06520e;
+}
+
+.no-button:hover
+{
+    background-color: lightgrey;
+}
+
+.rename-error
+{
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.file-modal
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 0vw;
+    display: flex;
+    /* flex-direction: row; */
+}
+
+.file-options-modal
+{
+    background-color: #227447;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.file-recent-modal
+{
+    background-color: #fff;
+    height: 100%;
+    width: 40%;
+}
+
+.file-transparent-modal
+{
+    width: 50%;
+    height: 100%;
+}
+
+.close, .new, .open, .save
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 60px;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.close
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.close-icon
+{
+    transform: rotate(90deg);
+}
+
+.close-icon, .new-icon, .open-icon, .save-icon
+{
+    position: absolute;
+    left: 1.3rem;
+}
+
+.close:hover, .new:hover, .open:hover, .save:hover
+{
+    background-color: #043609;
+    cursor: pointer;
+}

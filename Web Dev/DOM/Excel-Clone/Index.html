@@ -10,12 +10,11 @@
     <script src="./Flat-HTML5-Palette-Color-Picker-For-jQuery-colorPick-js/src/colorPick.js"></script>
     <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.js"></script>
 
-
-
     <link rel="stylesheet" href="node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="Style.css" />
     <link rel="stylesheet" href="./Flat-HTML5-Palette-Color-Picker-For-jQuery-colorPick-js/src/colorPick.css" />
+    <!-- <link rel="stylesheet" href="colorPick.css"> -->
 
     <title>Excel Clone</title>
 </head>
@@ -24,16 +23,16 @@
     <div class="container">
         <div class="title">Sheet 1 - EXCEL</div>
         <div class="menu-bar">
-            <div class="menu-bar-item">File</div>
+            <div class="menu-bar-item menu-file">File</div>
             <div class="menu-bar-item selected">Home</div>
             <div class="menu-bar-item">Insert</div>
             <div class="menu-bar-item">Page Layout</div>
             <div class="menu-bar-item">Help</div>
         </div>
         <div class="menu-icon-bar">
-            <div class="material-icons menu-icon">content_cut</div>
-            <div class="material-icons menu-icon">content_copy</div>
-            <div class="material-icons menu-icon">content_paste</div>
+            <div class="material-icons menu-icon" id="cut">content_cut</div>
+            <div class="material-icons menu-icon" id="copy">content_copy</div>
+            <div class="material-icons menu-icon" id="paste">content_paste</div>
             <select class="menu-selector" id="font-family">
                 <option style="font-family:Noto Sans" value="Noto Sans">Noto Sans</option>
                 <option style="font-family:Arial" value="Arial">Arial</option>
@@ -66,10 +65,10 @@
             <div class="material-icons menu-icon" id="bold">format_bold</div>
             <div class="material-icons menu-icon" id="italic">format_italic</div>
             <div class="material-icons menu-icon" id="underlined">format_underlined</div>
-            <div class="material-icons menu-icon">
+            <div class="material-icons menu-icon pick-color">
                 <img id="fill-color" src="https://img.icons8.com/material-sharp/20/000000/fill-color.png" />
             </div>
-            <div class="material-icons menu-icon">
+            <div class="material-icons menu-icon pick-color">
                 <img id="text-color" src="https://img.icons8.com/material-sharp/20/000000/generic-text.png" />
             </div>
             <div class="material-icons menu-icon alignment selected" data-type="left">format_align_left</div>
@@ -111,23 +110,30 @@
                 <div class="sheet-tab selected">Sheet 1</div>
             </div>
         </div>
-        <!-- <div class="sheet-options-modal">
-            <div class="option-sheet-rename">rename</div>
-            <div class="option-sheet-delete">delete</div>
-        </div> -->
-        <!-- <div class="sheet-modal-parent">
-            <div class="sheet-rename-modal">
-                <div class="sheet-modal-title">Rename Sheet</div>
-                <div class="sheet-modal-input-container">
-                    <span class="sheet-modal-input-title">Rename Sheet to:</span>
-                    <input class="sheet-modal-input-container" type="text" />
+
+        <!-- <div class="file-modal">
+            <div class="file-options-modal">
+                <div class="close">
+                    <div class="material-icons close-icon">arrow_circle_down</div>
+                    <div>Close</div>
                 </div>
-                <div class="sheet-modal-confirmation">
-                    <div class="button yes-button">OK</div>
-                    <div class="button no-button">CANCEL</div>
+                <div class="new">
+                    <div class="material-icons new-icon">insert_drive_file</div>
+                    <span>New</span>
+                </div>
+                <div class="open">
+                    <div class="material-icons open-icon">folder_open</div>
+                    <span>Open</span>
+                </div>
+                <div class="save">
+                    <div class="material-icons save-icon">save</div>
+                    <span>Save</span>
                 </div>
             </div>
+            <div class="file-recent-modal"></div>
+            <div class="file-transparent-modal"></div>
         </div> -->
+
     </div>
     <script src="Script.js"></script>
 </body>
