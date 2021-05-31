@@ -1,0 +1,179 @@
+*{
+    box-sizing: border-box;
+}
+
+body 
+{
+    margin: 0;
+}
+
+video 
+{
+    height: 100%;
+    width: 100%;
+}
+
+.video-container
+{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+}
+
+#record, #capture
+{
+    position: fixed;
+    right: 2rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 5px solid white;
+    z-index: 1;
+}
+
+#record
+{
+    top: 40vh;
+    background-color: black;
+}
+
+#capture
+{
+    top: 50vh;
+    background-color: black;
+}
+
+#record div, #capture div
+{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    margin: auto;
+}
+
+#record div 
+{
+    background: red;
+}
+
+#capture div 
+{
+    background: white;
+}
+
+.animate-record
+{
+    animation: scaler 1s infinite;
+}
+@keyframes scaler
+{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.animate-capture
+{
+    animation: fader 0.5s;
+}
+@keyframes fader
+{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#record:hover, #capture:hover
+{
+    cursor: pointer;
+}
+
+.filter-container
+{
+    background-color: red;;
+    position: fixed;
+    height: 20rem;
+    width: 5rem;
+    left: 10rem;
+    top: 20%;
+    color: #fff;
+    z-index: 1;
+}
+
+.filters
+{
+    height: calc(20rem / 6);
+    border: 3px solid #fff;
+    background: url(Filter.jpg);
+    background-size: cover;
+    background-blend-mode: soft-light;
+}
+
+.filter-div
+{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+}
+
+.filters:hover 
+{
+    cursor: pointer;
+}
+
+.zoom-container
+{
+    height: 10rem;
+    width: 5rem;
+    right: 2rem;
+    top: 10%;
+    position: fixed;
+    border: 3px outset #fff;
+    z-index: 1;
+}
+
+.zoom-in, .zoom-out
+{
+    width: 100%;
+    height: 50%;
+    border: 2px solid #000;
+    background-color: #2f3640;
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+}
+
+.zoom-in:hover, .zoom-out:hover
+{
+    cursor: pointer;
+}
+
+.galery
+{
+    background-color: #dcdde1;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    height: 2rem;
+    width: 2rem;
+    padding-top: calc((2rem - 1.5rem) / 2);
+    display: flex;
+    /* justify-content: center; */
+    text-align: center;
+}
