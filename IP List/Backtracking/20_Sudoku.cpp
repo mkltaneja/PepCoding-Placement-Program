@@ -2,16 +2,18 @@
 #include <vector>
 using namespace std;
 
+int cnt = 0;
 void solve_Sudoku(int idx, vector<int> &row, vector<int> &col, vector<vector<int>> &mat, vector<vector<int>> &board)
 {
     if (idx == 81)
     {
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-                cout << board[i][j] << " ";
-            cout << endl;
-        }
+        cnt++;
+        // for (int i = 0; i < 9; i++)
+        // {
+        //     for (int j = 0; j < 9; j++)
+        //         cout << board[i][j] << " ";
+        //     cout << endl;
+        // }
         return;
     }
     int i = idx / 9, j = idx % 9;
@@ -60,4 +62,5 @@ int main()
         }
     }
     solve_Sudoku(0, row, col, mat, board);
+    cout<<cnt<<"\n";
 }
