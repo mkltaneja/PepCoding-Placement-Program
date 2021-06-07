@@ -12,7 +12,7 @@
 class Solution
 {
 public:
-    // Morris inorder traversal (iterative traversal)
+    // Morris inorder traversal (iterative traversal) --> O(1) Space
     vector<int> inorderTraversal(TreeNode *root)
     {
         vector<int> ans;
