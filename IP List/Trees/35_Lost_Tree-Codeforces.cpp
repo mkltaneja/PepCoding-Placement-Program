@@ -110,40 +110,57 @@ void display(int n, int m, vvi &a)
 
 //////////////////////////////////////////////////////////////////MUKUL TANEJA///////////////////////////////////////////////////
 
+void solve(int n)
+{
+    cout<<"? 1\n";
+    cout.flush();
+
+    vvi edge(n+1, vi(n+1));
+    vi dist(n+1);
+    int even = 0, odd = 0;
+    lp(i, 1, n+1)
+    {
+        cin >> dist[i];
+        if(dist[i] == 1)
+        {
+            edge[i][1] = 1;
+            edge[1][i] = 1;
+        }
+        if(dist[i] & 1) odd++;
+        else even++;
+    }
+    
+    int check = (odd < even);
+    for(int i = 2; i <= n; i++)
+    {
+        if(dist[i] % 2 == check)
+        {
+            cout<<"? "<<i<<"\n";
+            cout.flush();
+            
+            vi dist1(n+1);
+            lp(j, 1, n+1)
+            {
+                cin>>dist1[j];
+                if(dist1[j] == 1)
+                {
+                    edge[i][j] = 1;
+                    edge[j][i] = 1;
+                }
+            }
+        }
+    }
+    cout<<"!\n";
+    for(int i = 1; i <= n; i++)
+        for(int j = i+1; j <= n; j++)
+            if(edge[i][j]) cout<<i<<" "<<j<<"\n";
+}
+
 int main()
 {
     fastio();
     int n;
     cin>>n;
-    vi p(n), c(n,2);
-    vvi a(n);
-    lp(i, 0, n)
-    {
-        int ci;
-        cin >> p[i] >> c[i];
-        
-        if(p[i] == -1) continue;
-        
-        a[--p[i]].push_back(i);
-    }
-    
-    vector<int> ans;
-    for(int i = 0; i < n; i++)
-    {
-        if(c[i] == 0) continue;
-        bool bad = true;
-        for(int u : a[i])
-        {
-            if(c[u] == 0)
-            {
-                bad = false;
-                break;
-            }
-        }
-        if(bad) ans.push_back(i+1);
-    }
-    if(ans.empty()) cout<<"-1\n";
-    else display(ans.size(), ans);
-
+    solve(n);
     return 0;
 }
