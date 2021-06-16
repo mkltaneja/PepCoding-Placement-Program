@@ -18,7 +18,7 @@ long totsum(int i)
     while(i > 0)
     {
         sum += fenarr[i];
-        i -= (i & -i);
+        i -= (i & -i);  // OR i &= (i-1)
     }
     return sum;
 }
