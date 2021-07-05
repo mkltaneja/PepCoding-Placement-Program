@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+}
+
+.container
+{
+    display: flex;
+    
+}
+
+.media-card
+{
+    border: 1px solid black;
+}

@@ -730,43 +730,51 @@ $(".menu-file").click(function (e) {
     }, 250);
 
     // Closing the File Modal
-    $(".close, .file-transparent-modal, .new, .save").click(function (e) {
+    $(".close, .file-transparent-modal, .new, .save, .open").click(function (e) {
         fileModal.animate({
             width: "0vw"
         }, 250);
         setTimeout(function (e) {
             $(".file-modal").remove();
         }, 250);
+
     });
 
     // Making a new file
     $(".new").click(function (e) {
         if (saved)
             newFile();
-        else 
-        {
+        else {
             let saveModal = $(`<div class="sheet-modal-parent">
                                     <div class="sheet-delete-modal">
-                                    <div class="sheet-modal-title">${$(".title").text()}</div>
-                                    <div class="sheet-modal-detail-container">
+                                        <div class="sheet-modal-title">${$(".title").text()}</div>
+                                        <div class="sheet-modal-detail-container">
                                             <span class="sheet-modal-detail-title">Do You want to Save changes?</span>
-                                            </div>
-                                            <div class="sheet-modal-confirmation">
+                                        </div>
+                                        <div class="sheet-modal-confirmation">
                                             <div class="button yes-button">YES</div>
                                             <div class="button no-button">NO</div>
-                                            </div>
-                                            </div>
-                                            </div>`);
-                                            $(".container").append(saveModal);
-            $(".yes-button, .no-button").click(function (e) {
-                // saveFile();
-                newFile();
+                                        </div>
+                                    </div>
+                                </div>`);
+            $(".container").append(saveModal);
+            $(".yes-button").click(function (e) {
                 $(".sheet-modal-parent").remove();
+                saveFile(true);
+            });
+            $(".no-button").click(function (e) {
+                // saveFile();
+                $(".sheet-modal-parent").remove();
+                newFile();
             });
         }
     });
-    $(".save").click(function(e){
-        saveFile();
+    $(".save").click(function (e) {
+        if(!saved)
+            saveFile();
+    });
+    $(".open").click(function(e){
+        openFile();
     });
 });
 
@@ -784,7 +792,7 @@ function newFile() {
     addSheetEvents();
 }
 
-function saveFile() {
+function saveFile(newClicked) {
     let saveModal = $(`<div class="sheet-modal-parent">
                             <div class="sheet-rename-modal">
                                 <div class="sheet-modal-title">Save File</div>
@@ -800,9 +808,11 @@ function saveFile() {
                         </div>`);
     console.log("save");
     $(".container").append(saveModal);
+
     $(".sheet-modal-input").focus();
     $(".sheet-modal-input").select();
-    $(".yes-button").click(function(e){
+
+    $(".yes-button").click(function (e) {
         $(".title").text($(".sheet-modal-input").val());
         let a = document.createElement("a");
         a.href = `data:applications/json,${encodeURIComponent(JSON.stringify(cellData))}`;
@@ -810,8 +820,28 @@ function saveFile() {
         $(".container").append(a);
         a.click();
         a.remove();
+        saved = true;
     });
-    $(".no-button").click(function(e){
+    $(".yes-button, .no-button").click(function (e) {
+        if(newClicked)
+            newFile();
         $(".sheet-modal-parent").remove();
+    });
+}
+
+function openFile()
+{
+    let inputFile = $(`<input type="file" accept="application/json" />`);
+    $(".contaier").append(inputFile);
+    inputFile.click();
+    inputFile.change(function(e){
+        console.log(e);
+        let file = e.target.files[0];
+        $(".title").text(file.name.split(".json")[0]);
+        let reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = () =>{
+            console.log(reader.result);
+        }
     });
 }

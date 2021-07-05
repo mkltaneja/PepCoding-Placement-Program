@@ -583,3 +583,13 @@ body
     background-color: #043609;
     cursor: pointer;
 }
+
+#colorPick
+{
+    display: flex;
+    flex-wrap: wrap;
+    /* display: inline-block;
+    position: absolute; */
+    /* overflow-wrap: break-word; */
+    /* display:inline; */
+}

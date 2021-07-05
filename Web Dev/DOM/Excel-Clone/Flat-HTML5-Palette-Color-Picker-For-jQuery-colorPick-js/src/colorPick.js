@@ -45,7 +45,7 @@
 
     $.fn.colorPick.defaults = {
         'initialColor': '#3498db',
-        'paletteLabel': 'Default palette:',
+        'paletteLabel': 'Default palette:<br />',
         'allowRecent': true,
         'recentMax': 5,
         'allowCustomColor': false,
