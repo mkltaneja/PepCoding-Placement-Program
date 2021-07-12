@@ -1,8 +1,7 @@
 
-//Function to find number of strongly connected components in the graph.
-
-// 	Strongly Connected Components is Connected Components in the directed graph
-// Here we can't just fo DFS and find answer, but we have to find the problematic edges (Edges, separating the components)
+// Strongly Connected Components is Connected Components in the directed graph
+// Here we can't just do DFS and find answer, but we have to find the problematic edges (Edges, separating the components)
+// Time Complexity of SCC --> O(V+E)
 
 void dfs1(int u, vector<int> gp[], stack<int> &st, vector<bool> &vis)
 {

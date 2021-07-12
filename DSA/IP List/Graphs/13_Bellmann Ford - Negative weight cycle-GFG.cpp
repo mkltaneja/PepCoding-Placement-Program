@@ -1,8 +1,10 @@
 
 // We use Bellmann Ford Algorithms to check if there is a negative weight cycle or not.
-// IfThe Bellmann Ford Algorithm finds the minimum distance along with the path length
+// The Bellmann Ford Algorithm finds the minimum distance along with the path length
+// Time Complexity --> O(V*E)
 // We do exactly n-1 iterations, and ith iteration finds the minimum distance for the ith path
 // So its similar to BFS
+
 int inf = INT_MAX;
 int isNegativeWeightCycle(int n, vector<vector<int>> edges)
 {
