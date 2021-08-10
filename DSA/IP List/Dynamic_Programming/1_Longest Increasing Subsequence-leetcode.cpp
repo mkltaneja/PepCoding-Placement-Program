@@ -1,4 +1,7 @@
 
+#include<bits/stdc++.h>
+using namespace std;
+
 // APPROACH 1 --> O(n^2)
 
 int lengthOfLIS(vector<int> &nums)
