@@ -1,12 +1,12 @@
 
 
-// NOTE1:- MST is only defined for the undirected graphs
-// NOTE2:- MST can also handle -ve weights
-// NOTE3:- MST has time complexity -> O(ElogE/ElogV)
-// NOTE4:- In MST, we minimize the overall graph
+// NOTE1:- In MST, we minimize the overall graph
+// NOTE2:- MST is only defined for the undirected graphs
+// NOTE3:- MST can also handle -ve weights
+// NOTE4:- MST has time complexity -> O(ElogE/ElogV)
 
 
-
+ 
 
 
 #include <bits/stdc++.h>

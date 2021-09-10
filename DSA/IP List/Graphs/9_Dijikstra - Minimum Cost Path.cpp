@@ -1,12 +1,12 @@
 
 
 // NOTE1:- Dijikstra gives the shortest path in terms of weight from source to all vertices
-// NOTE2:- Dijikstra is defined for both dierected and indirected graphs
-// NOTE3:- Dijikstra can not handle -ve weight paths
-// NOTE4:- Dijikstra has time complexity -> O(ElogE / ElogV)
-// NOTE5:- In Dijikstra, we minimize the overall path
+// NOTE2:- In Dijikstra, we minimize the overall path
+// NOTE3:- Dijikstra is defined for both dierected and undirected graphs
+// NOTE4:- Dijikstra can not handle -ve weight paths
+// NOTE5:- Dijikstra has time complexity -> O(ElogE / ElogV)
 
-
+ 
 #include <bits/stdc++.h>
 using namespace std;
 
