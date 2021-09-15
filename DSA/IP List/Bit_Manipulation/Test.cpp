@@ -114,14 +114,14 @@ void solve(int n)
 {
     int x;
     cout<<0<<endl;
-    // cout.flush();
+    cout.flush();
     cin>>x;
     if(x == 1 || x == -1) return;
 
     for(int i = 1; i < n; i++)
     {
         cout<<(i ^ (i-1))<<endl;
-        // cout.flush();
+        cout.flush();
         cin>>x;
         if(x == 1 || x == -1) return;
     }
