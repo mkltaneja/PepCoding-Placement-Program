@@ -13,6 +13,9 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int tmp0 = (n3 & arr[i]), tmp1 = (n3p1 & arr[i]), tmp2 = (n3p2 & arr[i]);
+        n3 &= ~tmp0;
+        n3p1 &= ~tmp1;
+        n3p2 &= ~tmp2;
         n3 |= tmp2;
         n3p1 |= tmp0;
         n3p2 |= tmp1;
